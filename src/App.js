@@ -11,9 +11,12 @@ import './App.css';
 import './asset/reset.css'
 import CssBaseline from '@material-ui/core/CssBaseline';
 import BScroll from 'better-scroll'
+import { TransitionGroup, CSSTransition } from "react-transition-group";
+// import { AnimatedSwitch } from 'react-router-transition'
 import {
   Router,
-  Route
+  Route,
+  Switch
 } from 'react-router-dom'
 import createHistory from 'history/createBrowserHistory'
 const history = createHistory();
@@ -29,16 +32,27 @@ class App extends Component {
     return (
       <Provider store={store}>
         <Router history = {history}>
-          <div className="App">
-            <CssBaseline/>
-            <PublicHeader/>
-            <div className="warp">
-              <Route exact path="/home" name="home" component={Home}/>
-              <Route exact path="/favorite" name="favorite" component={Favorite}/>
-              <Route exact path="/PersonPin" name="PersonPin" component={Center}/>
-            </div>
-            <PublicFooter/>
-          </div>
+          <Route render={ ({location}) => {
+            return (
+              <div className="App">
+                <CssBaseline/>
+                <PublicHeader/>
+                <div className="warp">
+                  <TransitionGroup>
+                    <CSSTransition key={location.key} classNames="fade" timeout={300}>
+                      <Switch location={location}>
+                        <Route exact path="/home" name="home" component={Home}/>
+                        <Route exact path="/favorite" name="favorite" component={Favorite}/>
+                        <Route exact path="/PersonPin" name="PersonPin" component={Center}/>
+                        <Route render={() => <div>Not Found</div>} />
+                      </Switch>
+                    </CSSTransition>
+                  </TransitionGroup>
+                </div>
+                <PublicFooter/>
+              </div>
+            )
+          }}/>
         </Router>
       </Provider>
     );

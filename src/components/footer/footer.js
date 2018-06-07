@@ -4,6 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import HomeIcon from '@material-ui/icons/Home';
+import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import PersonPinIcon from '@material-ui/icons/PersonPin';
 import AppBar from '@material-ui/core/AppBar';
@@ -54,6 +55,7 @@ class PublicFooter extends React.Component {
           className={classes.root}
         >
           <BottomNavigationAction label="首页" value="home" icon={<HomeIcon />} />
+          <BottomNavigationAction label="西瓜视频" value="video" icon={<PlayCircleFilledIcon />} />
           <BottomNavigationAction label="关注" value="favorite" icon={<FavoriteIcon />} />
           <BottomNavigationAction label="个人中心" value="PersonPin" icon={<PersonPinIcon />} />
         </BottomNavigation>
