@@ -23,7 +23,7 @@ class RouterRoute extends Component {
           <Route exact path="/video" name="video" component={Video}/>
           <Route exact path="/favorite" name="favorite" component={Favorite}/>
           <Route exact path="/PersonPin" name="PersonPin" component={Center}/>
-          <Route render={() => <div>Not Found</div>} />
+          {/*<Route render={() => <div>Not Found</div>} />*/}
         </div>
       </Router>
     );

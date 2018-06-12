@@ -5,6 +5,7 @@ import store from './redux/store.js'
 import PublicHeader from './components/header/header';
 import PublicFooter from './components/footer/footer';
 import Home from './views/home/home.js'
+import Video from './views/video/video.js'
 import Center from './views/center/center.js'
 import Favorite from './views/favorite/favorite.js'
 import './App.css';
@@ -41,7 +42,8 @@ class App extends Component {
                   <TransitionGroup>
                     <CSSTransition key={location.key} classNames="fade" timeout={300}>
                       <Switch location={location}>
-                        <Route exact path="/home" name="home" component={Home}/>
+                        <Route exact path="/" name="home" component={Home}/>
+                        <Route exact path="/video" name="video" component={Video}/>
                         <Route exact path="/favorite" name="favorite" component={Favorite}/>
                         <Route exact path="/PersonPin" name="PersonPin" component={Center}/>
                         <Route render={() => <div>Not Found</div>} />
