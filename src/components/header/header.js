@@ -21,6 +21,9 @@ const styles = {
     marginRight: 20,
   },
 };
+const inlineStyle={
+  fontSize: '0.25rem'
+};
 class PublicHeader extends Component {
   // constructor (props) {
   //     super(props)
@@ -37,7 +40,7 @@ class PublicHeader extends Component {
             <Typography variant="title" color="inherit" className={classes.flex}>
               Title
             </Typography>
-            <Button color="inherit">Login</Button>
+            <Button color="inherit" style={inlineStyle}>Login</Button>
           </Toolbar>
         </AppBar>
       </div>

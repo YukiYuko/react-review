@@ -42,7 +42,7 @@ class App extends Component {
                   <TransitionGroup>
                     <CSSTransition key={location.key} classNames="fade" timeout={300}>
                       <Switch location={location}>
-                        <Route exact path="/" name="home" component={Home}/>
+                        <Route exact path="/home" name="home" component={Home}/>
                         <Route exact path="/video" name="video" component={Video}/>
                         <Route exact path="/favorite" name="favorite" component={Favorite}/>
                         <Route exact path="/PersonPin" name="PersonPin" component={Center}/>

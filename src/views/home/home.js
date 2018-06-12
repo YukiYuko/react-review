@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import BScroll from 'better-scroll'
+import Body from './body/body'
 import 'react-bscroll/lib/react-scroll.css'
 import './home.less'
 import api from '../../api/index'
@@ -43,13 +44,16 @@ class Home extends Component {
     let w = document.querySelectorAll('.nav_link')[0].clientWidth;
     document.querySelector('.navigator-scroll').style.width = len * w + 'px';
   };
-
+  // 点击导航
   nav_link_click = (tabId) => {
 
     this.setState({
       current_id: tabId
     });
-
+    this._adjust(tabId);
+  };
+  // 自适应导航
+  _adjust (tabId) {
     const viewportWidth = this.refs.viewport.clientWidth;
     const tabListWidth = this.refs.tabList.clientWidth;
     const minTranslate = Math.min(0, viewportWidth - tabListWidth);
@@ -66,7 +70,7 @@ class Home extends Component {
     let translate = middleTranslate - width;
     translate = Math.max(minTranslate, Math.min(0, translate));
     this.scroll.scrollTo(translate, 0, 300)
-  };
+  }
 
   render () {
     const {nav, current_id} = this.state;
@@ -82,6 +86,7 @@ class Home extends Component {
             }
           </div>
         </div>
+        {/*<Body/>*/}
       </div>
     )
   }
