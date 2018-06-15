@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import BScroll from 'better-scroll'
+import actions from '../../redux/actions/com'
+import {connect} from 'react-redux';
 import Body from './body/body'
 import 'react-bscroll/lib/react-scroll.css'
 import './home.less'
-import api from '../../api/index'
 class Home extends Component {
   // constructor (props) {
   //     super(props)
@@ -26,9 +27,6 @@ class Home extends Component {
     current_id: 1
   };
   componentDidMount () {
-    api.getNews().then((res) => {
-      console.log(res);
-    });
 
     // 初始化宽度
     this.init_width();
@@ -37,6 +35,17 @@ class Home extends Component {
       scrollX: true,
       click: true
     });
+    // 浏览器切换事件
+    document.addEventListener('visibilitychange',function(){ //浏览器切换事件
+      if(document.visibilityState==='hidden') { //状态判断
+        //normal_title=document.title;
+        document.title = '标题二';
+      }else {
+        document.title = '标题一';
+      }
+    });
+    //
+    console.log(this.props)
 
   }
   init_width () {
@@ -92,4 +101,8 @@ class Home extends Component {
   }
 }
 
-export default Home
+
+export default connect(
+  state=>state,
+  actions
+)(Home);

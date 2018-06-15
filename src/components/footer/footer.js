@@ -43,7 +43,6 @@ class PublicFooter extends React.Component {
     this.props.history.push('/'+value);
   };
   componentDidMount () {
-    console.log(this.props.history.location)
   }
   // goBack(){
   //   this.props.history.goBack();
@@ -58,7 +57,6 @@ class PublicFooter extends React.Component {
   render() {
     const { classes } = this.props;
     const { value } = this.state;
-    console.log("classes",classes);
     return (
       <AppBar position="fixed" className={classes.footBox}>
         <BottomNavigation

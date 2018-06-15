@@ -17,7 +17,8 @@ import { TransitionGroup, CSSTransition } from "react-transition-group";
 import {
   Router,
   Route,
-  Switch
+  Switch,
+  Redirect
 } from 'react-router-dom'
 import createHistory from 'history/createBrowserHistory'
 const history = createHistory();

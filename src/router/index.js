@@ -18,11 +18,13 @@ class RouterRoute extends Component {
     return (
       <Router history = {history}>
         <div>
-          <Route exact path="/" render={() => <Redirect to="/home" />}/>
-          <Route exact path="/home" name="home" component={Home}/>
-          <Route exact path="/video" name="video" component={Video}/>
-          <Route exact path="/favorite" name="favorite" component={Favorite}/>
-          <Route exact path="/PersonPin" name="PersonPin" component={Center}/>
+          <Switch>
+            <Redirect from='/' to='/home'/>
+            <Route exact path="/home" name="home" component={Home}/>
+            <Route exact path="/video" name="video" component={Video}/>
+            <Route exact path="/favorite" name="favorite" component={Favorite}/>
+            <Route exact path="/PersonPin" name="PersonPin" component={Center}/>
+          </Switch>
           {/*<Route render={() => <div>Not Found</div>} />*/}
         </div>
       </Router>
