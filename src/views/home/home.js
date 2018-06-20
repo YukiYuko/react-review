@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import BScroll from 'better-scroll'
 import comActions from '../../redux/actions/com'
-import homeActions from '../../redux/actions/home'
+import {getListOfNews} from '../../redux/actions/home'
 import {connect} from 'react-redux';
 import Body from './body/body'
 import 'react-bscroll/lib/react-scroll.css'
@@ -45,8 +45,8 @@ class Home extends Component {
         document.title = '标题一';
       }
     });
-    //
-    console.log(this.props)
+    // 获取资讯
+    getListOfNews();
 
   }
   init_width () {
@@ -104,6 +104,5 @@ class Home extends Component {
 
 
 export default connect(
-  state=>state,
-  {...comActions, ...homeActions}
+  state=>state
 )(Home);
