@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import BScroll from 'better-scroll'
-import actions from '../../redux/actions/com'
+import comActions from '../../redux/actions/com'
+import homeActions from '../../redux/actions/home'
 import {connect} from 'react-redux';
 import Body from './body/body'
 import 'react-bscroll/lib/react-scroll.css'
@@ -104,5 +105,5 @@ class Home extends Component {
 
 export default connect(
   state=>state,
-  actions
+  {...comActions, ...homeActions}
 )(Home);
