@@ -9,7 +9,7 @@ class NewsItem extends Component {
   }
   render () {
     const {type} = this.state;
-    const temp1 = () => (
+    const Temp1 = () => (
       <div className="newsItem_temp1">
         <div className="title">这是标题</div>
         <div className="image">
@@ -24,7 +24,7 @@ class NewsItem extends Component {
         </div>
       </div>
     );
-    const temp2= () => (
+    const Temp2 = () => (
       <div className="newsItem_temp2">
         
       </div>
@@ -32,7 +32,7 @@ class NewsItem extends Component {
     return (
       <div className="newsItem">
         {
-          type === 1 ? temp1 : temp2
+          type === 1 ? <Temp1/>: <Temp2/>
         }
       </div>
     )

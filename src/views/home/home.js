@@ -4,7 +4,7 @@ import comActions from '../../redux/actions/com'
 import homeActions from '../../redux/actions/home'
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import Body from './body/body'
+import NewsList from './body/body'
 import 'react-bscroll/lib/react-scroll.css'
 import './home.less'
 import {getNews} from '../../api/index'
@@ -52,7 +52,6 @@ class Home extends Component {
     const {getList} = this.props.homeActions;
     getNews(params).then((res) => {
       getList(res);
-      console.log(this.props)
     })
   }
   init_width () {
@@ -102,7 +101,7 @@ class Home extends Component {
             }
           </div>
         </div>
-        {/*<Body/>*/}
+        <NewsList {...this.props.home}/>
       </div>
     )
   }
