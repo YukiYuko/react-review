@@ -5,6 +5,7 @@ import homeActions from '../../redux/actions/home'
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import NewsList from './body/body'
+import TemplateList from '../template/news/index'
 import 'react-bscroll/lib/react-scroll.css'
 import './home.less'
 import {getNews} from '../../api/index'

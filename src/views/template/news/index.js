@@ -9,30 +9,41 @@ class NewsItem extends Component {
   }
   render () {
     const {type} = this.state;
+    const {item} = this.props;
     const Temp1 = () => (
       <div className="newsItem_temp1">
-        <div className="title">这是标题</div>
+        <div className="title">{item.title}</div>
         <div className="image">
-          <div className="image_item"></div>
-          <div className="image_item"></div>
-          <div className="image_item"></div>
+        {
+          item.images.map((url) => (
+            <div className="image_item"><img src={url}/></div>
+          ))
+        }
         </div>
         <div className="text">
-          <span className="from">清华社</span>
-          <span className="discuss">评论: 10</span>
-          <span className="time">2018-5-12</span>
+          <span className="from">来源: {item.source}</span>
+          <span className="discuss">评论: {item.comment}</span>
+          <span className="time">{item.time}</span>
         </div>
       </div>
     );
     const Temp2 = () => (
       <div className="newsItem_temp2">
-        
+        <div className="title">{item.title}</div>
+        <div className="image">
+          <div className="image_item image_item_big"><img src={item.images[0]}/></div>
+        </div>
+        <div className="text">
+          <span className="from">来源: {item.source}</span>
+          <span className="discuss">评论: {item.comment}</span>
+          <span className="time">{item.time}</span>
+        </div>
       </div>
     );
     return (
       <div className="newsItem">
         {
-          type === 1 ? <Temp1/>: <Temp2/>
+          item.images.length >= 2 ? <Temp1/>: <Temp2/>
         }
       </div>
     )

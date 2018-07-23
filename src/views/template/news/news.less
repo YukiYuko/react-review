@@ -1,6 +1,26 @@
 @import '../../../asset/variables.less';
 .newsItem{
+ border-bottom: 1px solid #f5f5f5; padding: 0.2rem 0;
   .title{
-    font-size: 0.4rem; color: @title_color;
+    font-size: 0.4rem; color: @title_color; margin-bottom: 0.1rem;
+  }
+  .image{
+    display: flex;
+    justify-content: space-between;
+    .image_item{
+      flex: 1; padding: 0 0.1rem; margin-bottom: 0.1rem;
+      img{
+        width: 100%; max-height: 1.5rem;
+      }
+      &.image_item_big{
+        padding: 0;
+        img{
+          max-height: 3rem;
+        }
+      }
+    }
+  }
+  .text{
+    span{ margin-right: 0.1rem; font-size: 0.24rem; color: #999; }
   }
 }
