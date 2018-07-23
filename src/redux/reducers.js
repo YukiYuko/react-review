@@ -3,7 +3,7 @@ import { combineReducers } from 'redux';
 
 // Reducers
 import com from './reducers/com';
-import * as home from './reducers/home';
+import home from './reducers/home';
 
 // Combine Reducers
 const reducers = combineReducers({

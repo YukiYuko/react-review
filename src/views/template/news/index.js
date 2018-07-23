@@ -26,7 +26,7 @@ class NewsItem extends Component {
     );
     const temp2= () => (
       <div className="newsItem_temp2">
-
+        
       </div>
     );
     return (

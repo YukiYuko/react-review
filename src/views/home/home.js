@@ -50,8 +50,9 @@ class Home extends Component {
     // 获取资讯
     const params = {};
     const {getList} = this.props.homeActions;
-    getNews(params).then(() => {
-        
+    getNews(params).then((res) => {
+      getList(res);
+      console.log(this.props)
     })
   }
   init_width () {
