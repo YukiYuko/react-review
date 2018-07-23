@@ -27,7 +27,8 @@ class Home extends Component {
       {id:11, name: '国际'},
       {id:12, name: '时尚'},
     ],
-    current_id: 1
+    current_id: 1,
+    list: []
   };
   componentDidMount () {
 
@@ -51,6 +52,10 @@ class Home extends Component {
     const params = {};
     const {getList} = this.props.homeActions;
     getNews(params).then((res) => {
+      this.setState({
+        list: res
+      });
+      console.log(this.state.list)
       getList(res);
     })
   }
@@ -101,7 +106,7 @@ class Home extends Component {
             }
           </div>
         </div>
-        <NewsList {...this.props.home}/>
+        <NewsList list={this.state.list}/>
       </div>
     )
   }
