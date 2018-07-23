@@ -15,21 +15,21 @@ const getList = createAction('GET_LIST_OF_NEWS');
 
 
 // 获取 news api
-const getListOfNews = (params) => dispatch => {
-  return new Promise( (resolve, reject) => {
-    api.getNews(params)
-      .then( res => {
-        const list = res.data.list;
-        dispatch(createAction('GET_LIST_OF_NEWS')({list}));
-        resolve(list)
-      }).catch( err => {
-      reject(err)
-    })
-  })
-};
+// const getListOfNews = (params) => dispatch => {
+//   return new Promise( (resolve, reject) => {
+//     api.getNews(params)
+//       .then( res => {
+//         const list = res.data.list;
+//         dispatch(createAction('GET_LIST_OF_NEWS')({list}));
+//         resolve(list)
+//       }).catch( err => {
+//       reject(err)
+//     })
+//   })
+// };
 
 export default {
   addNews,
   delNews,
-  getListOfNews
+  getList
 }

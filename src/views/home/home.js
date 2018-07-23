@@ -7,6 +7,7 @@ import {bindActionCreators} from 'redux';
 import Body from './body/body'
 import 'react-bscroll/lib/react-scroll.css'
 import './home.less'
+import {getNews} from '../../api/index'
 class Home extends Component {
   // constructor (props) {
   //     super(props)
@@ -47,7 +48,11 @@ class Home extends Component {
       }
     });
     // 获取资讯
-
+    const params = {};
+    const {getList} = this.props.homeActions;
+    getNews(params).then(() => {
+        
+    })
   }
   init_width () {
     let len = document.querySelectorAll('.nav_link').length;
