@@ -8,7 +8,7 @@ import * as home from './reducers/home';
 // Combine Reducers
 const reducers = combineReducers({
   com,
-  ...home
+  home
 });
 
 export default reducers;

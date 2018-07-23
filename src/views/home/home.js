@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import BScroll from 'better-scroll'
 import comActions from '../../redux/actions/com'
-import {getListOfNews} from '../../redux/actions/home'
+import homeActions from '../../redux/actions/home'
 import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 import Body from './body/body'
 import 'react-bscroll/lib/react-scroll.css'
 import './home.less'
@@ -46,7 +47,6 @@ class Home extends Component {
       }
     });
     // 获取资讯
-    getListOfNews();
 
   }
   init_width () {
@@ -102,7 +102,13 @@ class Home extends Component {
   }
 }
 
-
+function mapDispatchToProps(dispatch) {
+  return {
+    comActions: bindActionCreators(comActions, dispatch),
+    homeActions: bindActionCreators(homeActions, dispatch),
+  }
+}
 export default connect(
-  state=>state
+  state=>state,
+  mapDispatchToProps
 )(Home);
