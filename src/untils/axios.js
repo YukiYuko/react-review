@@ -54,7 +54,7 @@ export default {
     if (!url) return;
     return service({
       method: 'get',
-      url: baseURL + url,
+      url: url,
       params,
       timeout: 30000
     }).then(checkStatus).then(checkCode)
@@ -63,7 +63,7 @@ export default {
     if (!url) return;
     return axios({
       method: 'post',
-      url: baseURL + url,
+      url: url,
       data: qs.stringify(data),
       timeout: 30000
     }).then(checkStatus).then(checkCode)
@@ -72,7 +72,7 @@ export default {
     if (!url) return;
     return axios({
       method: 'post',
-      url: baseURL + url,
+      url: url,
       data
     }).then(checkStatus).then(checkCode)
   }

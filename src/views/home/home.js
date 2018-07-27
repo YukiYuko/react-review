@@ -50,13 +50,22 @@ class Home extends Component {
       }
     });
     // 获取资讯
-    const params = {};
+    const params = {
+      "tag": "__all__",
+      "ac": "wap",
+      "count": 20,
+      "format": "json_raw",
+      "as": "A1A59B359A7D5C3",
+      "cp": "5B5AED95FC036E1",
+      "min_behot_time": 0,
+      "_signature": "azoArwAAMGMf.Hjys7Z7ums6AL"
+    };
     const {getList} = this.props.homeActions;
     getNews(params).then((res) => {
       this.setState({
         list: res
       });
-      console.log(this.state.list)
+      console.log(this.state.list);
       getList(res);
     })
   }

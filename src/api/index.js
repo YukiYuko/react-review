@@ -1,17 +1,7 @@
 import ajax from '../untils/axios'
-
+const base_url = 'https://m.toutiao.com/list/';
 // 获取 news api
-const getNews = (params) => {
-  return new Promise( (resolve, reject) => {
-    ajax.get('home/list', params)
-      .then( res => {
-        const list = res.data.list;
-        resolve(list)
-      }).catch( err => {
-      reject(err)
-    })
-  })
-};
+const getNews = (params) => ajax.get(base_url, params);
 export {
   getNews
 }
